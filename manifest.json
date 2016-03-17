@@ -1,0 +1,38 @@
+{
+    "manifest_version": 2,
+    "name": "My application",
+    "version": "0.9",
+
+    "icons": {
+        "16": "./image/16x16.png",
+        "32": "./image/32x32.png",
+        "48": "./image/48x48.png",
+        "128": "./image/128x128.png"
+    },
+
+    "permissions": [
+        "tabs",
+        "http://hh.ru/*",
+        "http://job.amulex.lan/*"
+    ],
+
+    "background" : {
+        "page": "background.html"
+    },
+
+    "content_scripts":[{
+        "matches": [
+            "http://hh.ru/*",
+            "http://*/*" //TODO не забываем проставить разрешения для url
+        ],
+        "js": [
+            "js/script.js",
+            "js/jquery.js"
+        ]
+    }],
+
+    "browser_action": {
+        "default_title": "Application",
+        "default_icon" : "./image/16x16.png"
+    }
+}
